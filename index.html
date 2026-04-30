@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yurii Martyniuk — Senior DevOps Engineer & AWS Solutions Architect. 7+ years architecting secure, scalable cloud infrastructure. ISO 27001 & SOC 2.">
+<meta name="author" content="Yurii Martyniuk">
+<meta property="og:title" content="Yurii Martyniuk — Senior DevOps Engineer & Cloud Architect">
+<meta property="og:description" content="Senior DevOps Engineer with 7+ years of experience designing secure, scalable cloud infrastructure on AWS, GCP and Azure.">
+<meta property="og:type" content="website">
+<title>Yurii Martyniuk — Senior DevOps Engineer & Cloud Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050507;
+    --bg-1:#0a0a0f;
+    --bg-2:#0f0f17;
+    --surface:rgba(255,255,255,.03);
+    --surface-2:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.14);
+    --border-glow:rgba(99,102,241,.35);
+    --text:#f4f4f5;
+    --text-2:#a1a1aa;
+    --text-3:#71717a;
+    --text-dim:#52525b;
+    --accent:#818cf8;
+    --accent-2:#22d3ee;
+    --accent-3:#e879f9;
+    --success:#34d399;
+    --gradient:linear-gradient(135deg,#818cf8 0%,#22d3ee 50%,#e879f9 100%);
+    --gradient-soft:linear-gradient(135deg,rgba(129,140,248,.15) 0%,rgba(34,211,238,.1) 100%);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+    --shadow:0 8px 24px rgba(0,0,0,.4);
+    --shadow-lg:0 24px 60px rgba(0,0,0,.6);
+    --shadow-glow:0 0 60px rgba(99,102,241,.18);
+    --radius:14px;
+    --radius-sm:8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    font-feature-settings:'cv02','cv03','cv04','cv11';
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%,rgba(99,102,241,.18),transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 20%,rgba(34,211,238,.06),transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 60%,rgba(232,121,249,.06),transparent 70%);
+    background-attachment:fixed;
+    position:relative;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(to right,rgba(255,255,255,.025) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 80%);
+  }
+  ::selection{background:var(--accent);color:var(--bg)}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:8px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.2)}
+
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+
+  .icon{width:18px;height:18px;flex-shrink:0;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;fill:none}
+
+  /* === NAV === */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(5,5,7,.65);
+    backdrop-filter:blur(24px) saturate(180%);
+    -webkit-backdrop-filter:blur(24px) saturate(180%);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:32px;
+  }
+  .logo{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px;letter-spacing:-.3px}
+  .logo-mark{
+    width:32px;height:32px;border-radius:9px;
+    background:var(--gradient);color:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;
+    box-shadow:0 0 20px rgba(129,140,248,.4);
+  }
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:var(--text-2);font-size:14px;font-weight:500;transition:color .15s ease}
+  .nav-links a:hover,.nav-links a.active{color:var(--text)}
+  .nav-cta{
+    padding:9px 16px;background:var(--text);color:var(--bg);
+    border-radius:8px;font-size:13px;font-weight:600;
+    transition:all .2s ease;display:inline-flex;align-items:center;gap:6px;
+    border:1px solid transparent;
+  }
+  .nav-cta:hover{background:transparent;color:var(--text);border-color:var(--border-strong);box-shadow:var(--shadow-glow)}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+  section{padding:112px 0;position:relative}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--accent);font-weight:500;letter-spacing:1px;
+    text-transform:uppercase;margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--accent)}
+
+  h1,h2,h3,h4{letter-spacing:-.02em;color:var(--text);font-weight:600;font-family:'Space Grotesk',sans-serif}
+  h2.section-title{font-size:clamp(32px,4vw,52px);line-height:1.1;margin-bottom:16px;letter-spacing:-.035em}
+  .gradient-text{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .section-lead{color:var(--text-2);font-size:17px;max-width:680px;line-height:1.65}
+  .section-head{margin-bottom:64px;text-align:center}
+  .section-head .eyebrow{margin-left:auto;margin-right:auto}
+  .section-head .section-lead{margin-left:auto;margin-right:auto}
+
+  /* === HERO === */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:80px;align-items:center}
+  .hero-status{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:6px 14px;border:1px solid var(--border);background:var(--surface);
+    border-radius:100px;font-size:13px;color:var(--text-2);font-weight:500;
+    margin-bottom:28px;backdrop-filter:blur(8px);
+  }
+  .hero-status .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--success);
+    box-shadow:0 0 0 4px rgba(52,211,153,.18),0 0 12px rgba(52,211,153,.6);
+    animation:pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.5}}
+  .hero h1{
+    font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-.04em;
+    font-weight:700;margin-bottom:24px;font-family:'Space Grotesk',sans-serif;
+  }
+  .hero h1 .muted{color:var(--text-2);font-weight:500}
+  .hero-tagline{
+    font-size:18px;color:var(--text-2);line-height:1.6;
+    max-width:560px;margin-bottom:36px;
+  }
+  .hero-tagline strong{color:var(--text);font-weight:600}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 20px;border-radius:10px;font-weight:500;font-size:14px;
+    transition:all .2s ease;cursor:pointer;border:1px solid transparent;
+    white-space:nowrap;font-family:inherit;
+  }
+  .btn-primary{
+    background:var(--text);color:var(--bg);
+    box-shadow:0 0 0 1px var(--text), 0 8px 24px rgba(255,255,255,.1);
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 0 1px var(--text), 0 12px 32px rgba(255,255,255,.15)}
+  .btn-secondary{
+    background:var(--surface);color:var(--text);border-color:var(--border-strong);
+    backdrop-filter:blur(8px);
+  }
+  .btn-secondary:hover{border-color:var(--accent);box-shadow:var(--shadow-glow)}
+  .btn .icon{width:16px;height:16px}
+
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--border);border-radius:var(--radius);
+    background:var(--surface);overflow:hidden;backdrop-filter:blur(12px);
+  }
+  .hero-stat{padding:18px 20px;border-right:1px solid var(--border)}
+  .hero-stat:last-child{border-right:none}
+  .hero-stat .v{font-size:26px;font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:4px;font-family:'Space Grotesk',sans-serif}
+  .hero-stat .l{font-size:11.5px;color:var(--text-3);letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+
+  /* photo */
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .photo-card{position:relative;width:360px}
+  .photo-frame{
+    aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
+    background:var(--bg-2);
+    box-shadow:var(--shadow-lg),0 0 60px rgba(99,102,241,.15);
+    border:1px solid var(--border-strong);
+    position:relative;
+  }
+  .photo-frame::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(135deg,rgba(129,140,248,.08) 0%,transparent 50%);
+  }
+  .photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .photo-fallback{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:var(--gradient-soft);
+    font-size:88px;font-weight:700;color:var(--text);letter-spacing:-.05em;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .photo-card-meta{
+    position:absolute;left:-22px;bottom:24px;
+    background:var(--bg-1);border:1px solid var(--border-strong);
+    border-radius:12px;padding:11px 16px;
+    box-shadow:var(--shadow);font-size:13px;
+    display:flex;align-items:center;gap:11px;
+    backdrop-filter:blur(12px);
+  }
+  .photo-card-meta .av{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--gradient);color:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;font-family:'JetBrains Mono',monospace;
+  }
+  .photo-card-meta .name{font-weight:600;font-size:13px;letter-spacing:-.01em;color:var(--text)}
+  .photo-card-meta .role{font-size:11px;color:var(--text-3)}
+  .photo-glow{
+    position:absolute;inset:-40px;background:var(--gradient);
+    border-radius:30px;filter:blur(50px);opacity:.18;z-index:-1;
+    animation:photo-pulse 5s ease-in-out infinite;
+  }
+  @keyframes photo-pulse{0%,100%{opacity:.15;transform:scale(.95)}50%{opacity:.25;transform:scale(1.02)}}
+
+  /* trust bar */
+  .trust-bar{margin-top:72px;padding:32px 0;border-top:1px solid var(--border)}
+  .trust-bar .label{
+    font-size:11.5px;color:var(--text-3);letter-spacing:1.5px;
+    text-transform:uppercase;font-weight:500;margin-bottom:24px;text-align:center;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .trust-logos{
+    display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;
+  }
+  .trust-logo{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:500;font-size:14px;color:var(--text-3);
+    transition:all .2s ease;
+  }
+  .trust-logo:hover{color:var(--text)}
+  .trust-logo svg{width:24px;height:24px}
+
+  /* === ABOUT === */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+  .about-text p{
+    color:var(--text-2);font-size:16px;line-height:1.75;margin-bottom:18px;
+  }
+  .about-text strong{color:var(--text);font-weight:600}
+  .about-text .term{
+    color:var(--accent-2);font-family:'JetBrains Mono',monospace;font-size:.92em;
+    background:rgba(34,211,238,.06);padding:1px 7px;border-radius:5px;
+    border:1px solid rgba(34,211,238,.15);font-weight:500;
+  }
+  .info-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px;backdrop-filter:blur(12px);
+    position:relative;overflow:hidden;
+  }
+  .info-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent);
+    opacity:.5;
+  }
+  .info-card .head{
+    font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--text-3);margin-bottom:22px;font-weight:500;
+    padding-bottom:18px;border-bottom:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .info-list{list-style:none}
+  .info-list li{
+    display:flex;align-items:flex-start;gap:14px;padding:13px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .info-list li:last-child{border-bottom:none;padding-bottom:0}
+  .info-list .info-icon{
+    width:34px;height:34px;border-radius:9px;
+    background:var(--surface-2);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;border:1px solid var(--border);
+  }
+  .info-list .info-icon svg{width:16px;height:16px}
+  .info-list .lbl{font-size:11px;color:var(--text-3);margin-bottom:3px;letter-spacing:.5px;text-transform:uppercase;font-weight:500;font-family:'JetBrains Mono',monospace}
+  .info-list .val{font-size:14px;font-weight:500;letter-spacing:-.01em;color:var(--text)}
+
+  /* === EXPERTISE / SKILLS === */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--border);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;
+    backdrop-filter:blur(8px);
+  }
+  .skill-card{
+    background:var(--bg-1);padding:32px;
+    transition:all .25s ease;position:relative;
+  }
+  .skill-card::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(60% 60% at 0% 0%,rgba(129,140,248,.08),transparent 70%);
+    opacity:0;transition:opacity .3s ease;
+  }
+  .skill-card:hover{background:var(--bg-2)}
+  .skill-card:hover::before{opacity:1}
+  .skill-card > *{position:relative}
+  .skill-icon{
+    width:46px;height:46px;border-radius:11px;
+    background:var(--surface);display:flex;align-items:center;justify-content:center;
+    color:var(--accent);margin-bottom:20px;
+    border:1px solid var(--border-strong);
+  }
+  .skill-icon svg{width:22px;height:22px}
+  .skill-card h3{font-size:17px;font-weight:600;margin-bottom:10px;letter-spacing:-.01em;color:var(--text)}
+  .skill-card p{color:var(--text-2);font-size:13.5px;line-height:1.6;margin-bottom:18px}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tech-tag{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    padding:3px 9px;border-radius:5px;
+    background:var(--surface);border:1px solid var(--border);
+    color:var(--text-2);font-weight:500;
+  }
+
+  /* === CERTIFICATIONS === */
+  .certs-tabs{
+    display:flex;gap:4px;margin:0 auto 36px;
+    background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:5px;
+    width:fit-content;backdrop-filter:blur(12px);
+  }
+  .cert-tab{
+    padding:9px 18px;border-radius:7px;font-size:13px;font-weight:500;
+    color:var(--text-3);cursor:pointer;border:none;background:transparent;
+    transition:all .15s ease;font-family:inherit;
+  }
+  .cert-tab.active{background:var(--text);color:var(--bg)}
+  .cert-tab:hover:not(.active){color:var(--text)}
+  .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cert-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;display:flex;gap:18px;align-items:flex-start;
+    transition:all .25s ease;position:relative;backdrop-filter:blur(8px);
+    overflow:hidden;
+  }
+  .cert-card::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(80% 80% at 0% 0%,var(--card-glow,rgba(129,140,248,.05)),transparent 60%);
+    opacity:0;transition:opacity .3s ease;pointer-events:none;
+  }
+  .cert-card:hover{
+    border-color:var(--border-strong);transform:translateY(-2px);
+    box-shadow:var(--shadow);
+  }
+  .cert-card:hover::before{opacity:1}
+
+  /* Hexagonal certification badges */
+  .cert-shield{
+    width:64px;height:72px;flex-shrink:0;position:relative;
+    filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));
+  }
+  .cert-shield svg{width:100%;height:100%}
+
+  .cert-info{flex:1;min-width:0;position:relative}
+  .cert-info h3{
+    font-size:14px;font-weight:600;line-height:1.4;margin-bottom:6px;letter-spacing:-.01em;color:var(--text);
+  }
+  .cert-info .issuer{font-size:11.5px;color:var(--text-3);margin-bottom:10px}
+  .cert-info .code{
+    display:inline-flex;align-items:center;gap:4px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;
+    padding:3px 8px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:5px;color:var(--text-2);
+  }
+
+  /* === COMPLIANCE === */
+  .compliance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .compliance-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:32px;backdrop-filter:blur(8px);position:relative;overflow:hidden;
+  }
+  .compliance-card::before{
+    content:'';position:absolute;top:0;left:0;width:100px;height:100px;
+    background:radial-gradient(circle,rgba(52,211,153,.12),transparent 70%);
+  }
+  .compliance-badge{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:5px 11px;border-radius:7px;
+    background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);
+    color:var(--success);font-family:'JetBrains Mono',monospace;
+    font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:20px;
+    position:relative;
+  }
+  .compliance-badge svg{width:12px;height:12px}
+  .compliance-card h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:12px;color:var(--text);position:relative}
+  .compliance-card > p{color:var(--text-2);font-size:14px;line-height:1.65;margin-bottom:20px;position:relative}
+  .compliance-card ul{list-style:none;position:relative}
+  .compliance-card li{
+    padding:10px 0 10px 28px;position:relative;
+    color:var(--text-2);font-size:13.5px;line-height:1.55;
+    border-top:1px solid var(--border);
+  }
+  .compliance-card li:first-child{border-top:none}
+  .compliance-card li::before{
+    content:'';position:absolute;left:0;top:14px;width:14px;height:14px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+    background-size:contain;background-repeat:no-repeat;
+  }
+
+  /* === ARTICLES === */
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .article-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;display:flex;flex-direction:column;
+    transition:all .25s ease;min-height:170px;
+    backdrop-filter:blur(8px);position:relative;overflow:hidden;
+  }
+  .article-card::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(80% 80% at 100% 0%,rgba(129,140,248,.07),transparent 60%);
+    opacity:0;transition:opacity .3s ease;
+  }
+  .article-card:hover{
+    border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow);
+  }
+  .article-card:hover::before{opacity:1}
+  .article-card > *{position:relative}
+  .article-platform{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;color:var(--text-3);
+    text-transform:uppercase;letter-spacing:.6px;font-weight:600;margin-bottom:14px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .article-platform svg{width:14px;height:14px;color:var(--text-2)}
+  .article-card h3{
+    font-size:15px;font-weight:600;margin-bottom:auto;line-height:1.45;letter-spacing:-.01em;color:var(--text);
+  }
+  .article-arrow{
+    display:inline-flex;align-items:center;gap:7px;
+    color:var(--accent);font-size:13px;font-weight:500;margin-top:18px;
+  }
+  .article-arrow svg{transition:transform .2s ease;width:14px;height:14px}
+  .article-card:hover .article-arrow svg{transform:translateX(4px)}
+
+  /* === CONTACT === */
+  .contact-section{padding:120px 0;position:relative;overflow:hidden}
+  .contact-section::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(60% 50% at 50% 50%,rgba(99,102,241,.18),transparent 70%);
+    pointer-events:none;
+  }
+  .contact-section .container{text-align:center;position:relative}
+  .contact-section h2{font-size:clamp(34px,4.6vw,56px);line-height:1.05;letter-spacing:-.04em;margin-bottom:18px;font-weight:700;font-family:'Space Grotesk',sans-serif}
+  .contact-section .lead{color:var(--text-2);font-size:17px;max-width:580px;margin:0 auto 36px;line-height:1.6}
+  .contact-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  .social-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+    max-width:680px;margin:56px auto 0;
+  }
+  .social-card{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    padding:22px 16px;border:1px solid var(--border);
+    border-radius:12px;background:var(--surface);backdrop-filter:blur(8px);
+    transition:all .25s ease;color:var(--text-2);
+  }
+  .social-card:hover{
+    border-color:var(--border-strong);background:var(--surface-2);
+    transform:translateY(-3px);color:var(--text);
+    box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 30px var(--social-glow,rgba(129,140,248,.15));
+  }
+  .social-card .ico{
+    width:42px;height:42px;border-radius:10px;
+    background:var(--surface-2);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--social-color,var(--accent));
+  }
+  .social-card .ico svg{width:20px;height:20px}
+  .social-card .lbl{font-size:12px;font-weight:500;color:inherit}
+  .social-card .handle{font-size:11px;color:var(--text-3);font-family:'JetBrains Mono',monospace}
+
+  /* === FOOTER === */
+  footer{
+    border-top:1px solid var(--border);padding:36px 0;
+    background:rgba(5,5,7,.6);backdrop-filter:blur(8px);
+  }
+  footer .footer-inner{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    color:var(--text-3);font-size:13px;
+  }
+  footer .copyright{font-family:'JetBrains Mono',monospace}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* responsive */
+  @media (max-width:980px){
+    .hero-grid,.about-grid{grid-template-columns:1fr;gap:56px}
+    .hero-visual{order:-1;justify-content:flex-start}
+    .photo-card{width:280px}
+    .skills-grid,.certs-grid,.compliance-grid,.articles-grid{grid-template-columns:repeat(2,1fr)}
+    .social-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .nav-inner{padding:14px 20px}
+    .container{padding:0 20px}
+    section{padding:80px 0}
+    .hero{padding:56px 0}
+    .skills-grid,.certs-grid,.compliance-grid,.articles-grid,.social-grid{grid-template-columns:1fr}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .hero-stat:nth-child(2){border-right:none}
+    .hero-stat:nth-child(1),.hero-stat:nth-child(2){border-bottom:1px solid var(--border)}
+    .trust-logos{gap:24px}
+    .social-grid{grid-template-columns:repeat(2,1fr);max-width:360px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ INLINE SVG ICON LIBRARY ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- General icons -->
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-languages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.94-8.55A6 6 0 0 0 6.5 19h11Z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.91a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="i-git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="14" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="9" y="4" width="6" height="6" rx="1"/><path d="M12 10v4"/><path d="M7 17h10"/><path d="M7 14v3"/><path d="M17 14v3"/></symbol>
+    <symbol id="i-file-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><polyline points="14 2 14 8 20 8"/><circle cx="14" cy="14.5" r="2.5"/><path d="M14 16.5v3l-2 1-2-1v-3"/></symbol>
+    <symbol id="i-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+
+    <!-- Brand icons -->
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></symbol>
+    <symbol id="i-medium" viewBox="0 0 24 24"><path fill="currentColor" d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12ZM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12Z"/></symbol>
+    <symbol id="i-credly" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6Z"/><path fill="#0a0a0f" d="m9 12 2 2 4-4" stroke="#0a0a0f" stroke-width=".5"/></symbol>
+
+    <!-- Cloud / tooling logos -->
+    <symbol id="i-aws-mark" viewBox="0 0 256 153">
+      <path fill="currentColor" d="M72.392 55.438c0 3.137.34 5.68.93 7.545a45.4 45.4 0 0 0 2.71 6.103c.424.678.593 1.356.593 1.95 0 .85-.508 1.7-1.61 2.547l-5.336 3.56c-.763.508-1.526.762-2.205.762-.85 0-1.7-.424-2.548-1.187a26.3 26.3 0 0 1-3.056-3.992c-.85-1.44-1.7-3.052-2.633-5.001-6.612 7.798-14.92 11.706-24.92 11.706-7.121 0-12.797-2.034-16.957-6.103-4.16-4.07-6.282-9.494-6.282-16.279 0-7.205 2.546-13.054 7.713-17.464 5.165-4.41 12.034-6.616 20.768-6.616 2.886 0 5.852.255 8.99.679 3.14.424 6.36 1.102 9.755 1.866v-6.187c0-6.443-1.357-10.937-3.99-13.566-2.717-2.629-7.292-3.9-13.82-3.9-2.97 0-6.022.34-9.16 1.103-3.139.763-6.193 1.696-9.16 2.883a24.3 24.3 0 0 1-2.97 1.102 5.2 5.2 0 0 1-1.357.255c-1.187 0-1.78-.85-1.78-2.629v-4.155c0-1.357.17-2.374.594-2.967.424-.594 1.187-1.187 2.376-1.78 2.97-1.527 6.53-2.8 10.69-3.817C30.985.677 35.4.171 40.07.171c10.097 0 17.473 2.29 22.215 6.87 4.66 4.58 7.038 11.535 7.038 20.86v27.453zm-34.42 12.893c2.8 0 5.683-.51 8.736-1.527 3.054-1.018 5.768-2.883 8.057-5.426 1.358-1.61 2.376-3.39 2.886-5.426.508-2.034.847-4.494.847-7.376v-3.56a70.872 70.872 0 0 0-7.802-1.443 63.842 63.842 0 0 0-7.97-.508c-5.683 0-9.842 1.103-12.628 3.391-2.8 2.29-4.158 5.512-4.158 9.748 0 3.984 1.018 6.95 3.139 8.985 2.036 2.121 5.005 3.142 8.893 3.142m68.073 9.155c-1.527 0-2.547-.255-3.224-.85-.679-.508-1.273-1.696-1.78-3.306L81.046 8.213c-.51-1.696-.764-2.798-.764-3.39 0-1.358.679-2.12 2.036-2.12h8.31c1.611 0 2.717.255 3.31.848.68.508 1.188 1.696 1.696 3.306l14.245 56.13L123.121 6.86c.424-1.696.932-2.798 1.61-3.306.68-.508 1.866-.848 3.394-.848h6.78c1.611 0 2.717.255 3.395.848.679.508 1.273 1.696 1.61 3.306l13.398 56.808 14.66-56.808c.508-1.696 1.103-2.798 1.696-3.306.68-.508 1.78-.848 3.31-.848h7.886c1.357 0 2.12.679 2.12 2.12 0 .424-.085.85-.17 1.357-.085.508-.255 1.187-.594 2.12L161.08 73.495c-.51 1.696-1.104 2.798-1.78 3.306-.68.508-1.78.85-3.225.85h-7.291c-1.611 0-2.715-.256-3.395-.85-.678-.594-1.273-1.696-1.61-3.39l-13.314-55.45-13.227 55.367c-.424 1.696-.932 2.798-1.61 3.39-.65.594-1.866.85-3.395.85zm108.926 2.29c-4.413 0-8.821-.51-13.062-1.527-4.243-1.018-7.55-2.121-9.755-3.39-1.357-.764-2.29-1.612-2.629-2.376a5.99 5.99 0 0 1-.51-2.374v-4.325c0-1.78.679-2.629 1.951-2.629a4.7 4.7 0 0 1 1.527.255c.51.17 1.273.51 2.121.847a45.7 45.7 0 0 0 9.33 2.97c3.394.679 6.7 1.018 10.094 1.018 5.34 0 9.499-.933 12.385-2.798 2.886-1.866 4.413-4.58 4.413-8.054 0-2.374-.764-4.325-2.29-5.935-1.527-1.61-4.413-3.052-8.567-4.41l-12.296-3.815c-6.193-1.95-10.776-4.834-13.566-8.65-2.798-3.733-4.243-7.886-4.243-12.297 0-3.56.764-6.7 2.29-9.41 1.527-2.713 3.564-5.087 6.107-6.952 2.547-1.95 5.422-3.392 8.821-4.41 3.395-1.018 6.953-1.442 10.685-1.442 1.866 0 3.819.085 5.683.34a92 92 0 0 1 5.512.847 79.84 79.84 0 0 1 4.835 1.272c1.527.51 2.715 1.018 3.564 1.527.868.483 1.617 1.16 2.205 1.95.422.679.595 1.611.595 2.798v3.985c0 1.778-.68 2.713-2.036 2.713-.764 0-1.951-.34-3.479-1.018-5.082-2.288-10.685-3.39-16.876-3.39-4.835 0-8.654.764-11.282 2.374-2.629 1.611-3.987 4.07-3.987 7.46 0 2.376.847 4.41 2.547 6.022 1.696 1.61 4.835 3.221 9.33 4.665l12.044 3.815c6.107 1.95 10.519 4.665 13.144 8.142 2.629 3.475 3.901 7.461 3.901 11.875 0 3.645-.762 6.95-2.205 9.834a22.9 22.9 0 0 1-6.193 7.461c-2.633 2.121-5.768 3.645-9.4 4.749-3.819 1.187-7.802 1.78-12.13 1.78"/>
+      <path fill="currentColor" d="M230.993 120.964c-27.892 20.605-68.385 31.539-103.21 31.539-48.812 0-92.795-18.045-126.07-48.061-2.628-2.376-.255-5.598 2.886-3.733 35.97 20.86 80.295 33.495 126.155 33.495 30.945 0 64.95-6.443 96.235-19.673 4.665-2.121 8.65 3.052 4.004 6.433m11.62-13.227c-3.564-4.58-23.572-2.205-32.647-1.103-2.713.34-3.137-2.034-.678-3.815 15.94-11.196 42.135-7.97 45.193-4.24 3.054 3.815-.85 30-15.772 42.55-2.29 1.95-4.499.933-3.479-1.61 3.395-8.395 10.945-27.286 7.376-31.788"/>
+    </symbol>
+
+    <symbol id="i-gcp" viewBox="0 0 24 24"><path fill="#ea4335" d="M14.4 6.1 14.4 6.1l1.7-1.7-.1-.7C13 1.4 8.5 1.7 5.6 4.7c-.8.8-1.4 1.8-1.8 2.7.2 0 4.5-.7 4.5-.7s.2-.4.3-.3a4.5 4.5 0 0 1 5.7-.4l.1-.1Z"/><path fill="#4285f4" d="M19.8 7.4a10.5 10.5 0 0 0-1.6-2.6l-2.4 2.4c1 .8 1.5 2 1.5 3.3v.5c1.5 0 2.7 1.2 2.7 2.7s-1.2 2.7-2.7 2.7H12v3.3h5.4c2.3 0 4.4-1.7 4.7-4 .2-1.7-.5-3.4-2.3-5.3z"/><path fill="#34a853" d="M6.6 19.8H12v-3.3H6.6c-.4 0-.7-.1-1-.2L4.8 17l-2.4 2.4c1.2.9 2.6 1.4 4.2 1.4Z"/><path fill="#fbbc05" d="M6.6 8C4.3 8 2.4 9.6 2 11.7s.4 4.3 2.4 5.5L7.2 14a2.61 2.61 0 0 1-1.3-3.5 2.61 2.61 0 0 1 3.5-1.3c.5.2 1 .7 1.3 1.3l2.8-2.8C12 6.6 9.4 6 6.6 8Z"/></symbol>
+
+    <symbol id="i-azure" viewBox="0 0 24 24"><path fill="#0078d4" d="M5.483 21.3h13.034l-7.5-12.99zM10.5 2.7L0 21.3h6.92l8.064-13.965L10.5 2.7zm5.717 1.93-3.024 5.235 5.31 9.197H24z"/></symbol>
+
+    <symbol id="i-kubernetes" viewBox="0 0 24 24"><path fill="currentColor" d="M11.998 0C11.336 0 10.7.279 10.245.764L1.626 9.383a1.738 1.738 0 0 0-.474 1.706l2.054 8.42a1.738 1.738 0 0 0 1.317 1.317l8.42 2.054c.547.133 1.13.034 1.605-.299l8.62-8.62c.485-.456.764-1.092.764-1.755v-2.07c0-.662-.279-1.299-.764-1.755L13.752.764A1.736 1.736 0 0 0 11.998 0zM12 4.06l5.94 2.85-2.46 6.04L12 11.4l-3.48 1.55-2.46-6.04L12 4.06z"/></symbol>
+
+    <symbol id="i-docker" viewBox="0 0 24 24"><path fill="#2496ed" d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137a16.094 16.094 0 002.91-.262 12.121 12.121 0 003.795-1.377A10.405 10.405 0 0017.529 16.6c1.418-1.602 2.265-3.386 2.888-4.972h.252c1.37 0 2.21-.547 2.674-1.005.307-.291.547-.646.708-1.04l.099-.288z"/></symbol>
+
+    <symbol id="i-terraform" viewBox="0 0 24 24"><path fill="currentColor" d="M1.44 0v8.27l7.155 4.13V4.13zm21.12 4.13L15.405 0v4.13l7.155 4.14zM8.595 12.4l7.155 4.13V8.27L8.595 4.13zm0 9.47L15.75 24v-4.13L8.595 15.74z"/></symbol>
+
+    <!-- ============ AWS CERTIFICATION HEXAGONAL SHIELD ============ -->
+    <symbol id="i-cert-shield" viewBox="0 0 64 72">
+      <!-- Hexagonal shield base -->
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <!-- AWS smile/swoosh logo - simplified -->
+      <g transform="translate(32 30)">
+        <text text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="700" font-size="11" letter-spacing="-0.5">aws</text>
+        <path d="M-12 6 Q -8 10 0 10 Q 8 10 12 6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </symbol>
+
+    <symbol id="i-cert-eks" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 36)">
+        <text text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="700" font-size="11" y="0">EKS</text>
+        <text text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="500" font-size="6" y="12" opacity="0.8">BADGE</text>
+      </g>
+    </symbol>
+
+    <symbol id="i-cert-cka" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 28)">
+        <!-- Kubernetes wheel -->
+        <circle r="11" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <circle r="3" fill="#fff"/>
+        <!-- 7 spokes for k8s wheel -->
+        <g stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+          <line y1="-3" y2="-9"/>
+          <line transform="rotate(51.4)" y1="-3" y2="-9"/>
+          <line transform="rotate(102.8)" y1="-3" y2="-9"/>
+          <line transform="rotate(154.3)" y1="-3" y2="-9"/>
+          <line transform="rotate(205.7)" y1="-3" y2="-9"/>
+          <line transform="rotate(257.1)" y1="-3" y2="-9"/>
+          <line transform="rotate(308.5)" y1="-3" y2="-9"/>
+        </g>
+      </g>
+      <text x="32" y="58" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="8">CKA</text>
+    </symbol>
+
+    <symbol id="i-cert-tf" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(20 24)">
+        <!-- Terraform logo - 4 squares -->
+        <path fill="#fff" d="M0 0v8l7 4V4Z M21 4 14 0v4l7 4ZM7 12l7 4V8l-7-4Zm0 9 7 4v-4l-7-4Z"/>
+      </g>
+      <text x="32" y="60" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="7">TERRAFORM</text>
+    </symbol>
+  </defs>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">YM</span>
+      <span>Yurii Martyniuk</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#compliance">Compliance</a></li>
+      <li><a href="#writing">Writing</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in touch <svg class="icon" width="13" height="13"><use href="#i-arrow-right"/></svg></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-status"><span class="dot"></span>Open to senior DevOps roles &amp; consulting</div>
+        <h1>Senior DevOps Engineer<br><span class="muted">building </span><span class="gradient-text">resilient</span><span class="muted"> cloud infrastructure.</span></h1>
+        <p class="hero-tagline">
+          7+ years architecting, automating and securing production cloud platforms on
+          <strong>AWS</strong>, <strong>GCP</strong> and <strong>Azure</strong>.
+          Specialized in zero-downtime cloud migrations and audit-ready environments
+          for <strong>ISO 27001</strong> &amp; <strong>SOC 2</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in touch <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <a href="https://www.credly.com/users/yurii-martyniuk" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="icon"><use href="#i-shield-check"/></svg>Verify on Credly</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="v">7+</div><div class="l">Years experience</div></div>
+          <div class="hero-stat"><div class="v">10+</div><div class="l">Certifications</div></div>
+          <div class="hero-stat"><div class="v">3</div><div class="l">Cloud providers</div></div>
+          <div class="hero-stat"><div class="v">100%</div><div class="l">Audit pass rate</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-card">
+          <div class="photo-glow"></div>
+          <div class="photo-frame">
+            <img src="profile.jpg" alt="Yurii Martyniuk" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-fallback" style="display:none">YM</div>
+          </div>
+          <div class="photo-card-meta">
+            <div class="av">YM</div>
+            <div>
+              <div class="name">Yurii Martyniuk</div>
+              <div class="role">Senior DevOps · Lviv, UA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-bar">
+      <div class="label">// Cloud &amp; tooling expertise</div>
+      <div class="trust-logos">
+        <div class="trust-logo" style="color:#ff9900"><svg viewBox="0 0 256 153" style="width:34px;height:24px"><use href="#i-aws-mark"/></svg><span style="color:var(--text-3)">AWS</span></div>
+        <div class="trust-logo"><svg><use href="#i-gcp"/></svg><span>Google Cloud</span></div>
+        <div class="trust-logo"><svg><use href="#i-azure"/></svg><span>Azure</span></div>
+        <div class="trust-logo" style="color:#326ce5"><svg><use href="#i-kubernetes"/></svg><span style="color:var(--text-3)">Kubernetes</span></div>
+        <div class="trust-logo"><svg><use href="#i-docker"/></svg><span>Docker</span></div>
+        <div class="trust-logo" style="color:#7b42bc"><svg><use href="#i-terraform"/></svg><span style="color:var(--text-3)">Terraform</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// About</span>
+      <h2 class="section-title">Engineer behind the&nbsp;<span class="gradient-text">platform.</span></h2>
+      <p class="section-lead">Cloud-native by trade, security-minded by habit.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Senior <strong>DevOps Engineer</strong> based in Lviv, Ukraine, with seven years
+          of experience turning fragile, manually deployed systems into platforms that scale,
+          recover gracefully and audit cleanly.
+        </p>
+        <p>
+          My day-to-day spans <span class="term">VPC topologies</span>,
+          <span class="term">EKS clusters</span>, <span class="term">CI/CD pipelines</span>,
+          <span class="term">IaC modules</span> and observability stacks.
+          I'm fluent in <strong>AWS</strong>, comfortable in <strong>GCP</strong> and
+          <strong>Azure</strong>, and I've led several end-to-end cross-cloud migrations
+          with zero data loss and minimal downtime.
+        </p>
+        <p>
+          I also enjoy the harder parts of the job: passing <strong>ISO 27001</strong> and
+          <strong>SOC 2</strong> audits, designing multi-account governance with Control Tower,
+          hardening Kubernetes baselines, and building disaster-recovery plans that actually
+          get tested.
+        </p>
+        <p>
+          Outside of project work I write technical articles on
+          <a href="https://ethtool.medium.com/" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;color:var(--accent-2)">Medium</a>,
+          speak at AWS meetups, and mentor engineers on the path from sysadmin to cloud architect.
+        </p>
+      </div>
+      <aside class="info-card">
+        <div class="head">// quick.facts</div>
+        <ul class="info-list">
+          <li><span class="info-icon"><svg><use href="#i-map-pin"/></svg></span><div><div class="lbl">Location</div><div class="val">Lviv, Ukraine · Remote</div></div></li>
+          <li><span class="info-icon"><svg><use href="#i-briefcase"/></svg></span><div><div class="lbl">Role</div><div class="val">Senior DevOps Engineer</div></div></li>
+          <li><span class="info-icon"><svg><use href="#i-clock"/></svg></span><div><div class="lbl">Experience</div><div class="val">7+ years in DevOps &amp; Cloud</div></div></li>
+          <li><span class="info-icon"><svg><use href="#i-languages"/></svg></span><div><div class="lbl">Languages</div><div class="val">Ukrainian (native) · English (fluent)</div></div></li>
+          <li><span class="info-icon"><svg><use href="#i-target"/></svg></span><div><div class="lbl">Focus</div><div class="val">AWS · IaC · Security &amp; Compliance</div></div></li>
+          <li><span class="info-icon"><svg><use href="#i-handshake"/></svg></span><div><div class="lbl">Open to</div><div class="val">Senior roles · Architecture audits · Consulting</div></div></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Expertise</span>
+      <h2 class="section-title">What I work&nbsp;<span class="gradient-text">with.</span></h2>
+      <p class="section-lead">Tools chosen, not collected — every line of stack reflects production experience.</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-cloud"/></svg></div>
+        <h3>Cloud Platforms</h3>
+        <p>Multi-cloud designer with deep AWS expertise. Led platform migrations across providers without disrupting production.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS</span><span class="tech-tag">GCP</span>
+          <span class="tech-tag">Azure</span><span class="tech-tag">DigitalOcean</span>
+          <span class="tech-tag">Cloudflare</span><span class="tech-tag">Linode</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-layers"/></svg></div>
+        <h3>Infrastructure as Code</h3>
+        <p>Reusable, modular IaC with strong code review and CI gates — no clickops, no snowflakes.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Terraform</span><span class="tech-tag">Terragrunt</span>
+          <span class="tech-tag">CloudFormation</span><span class="tech-tag">CDK</span>
+          <span class="tech-tag">Pulumi</span><span class="tech-tag">Ansible</span>
+          <span class="tech-tag">Packer</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-container"/></svg></div>
+        <h3>Containers &amp; Orchestration</h3>
+        <p>Production Kubernetes for stateless and stateful workloads — autoscaling, GitOps, progressive delivery.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Kubernetes</span><span class="tech-tag">EKS</span>
+          <span class="tech-tag">GKE</span><span class="tech-tag">Helm</span>
+          <span class="tech-tag">ArgoCD</span><span class="tech-tag">Flux</span>
+          <span class="tech-tag">Docker</span><span class="tech-tag">ECS / Fargate</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-git-branch"/></svg></div>
+        <h3>CI / CD</h3>
+        <p>Pipelines that are fast, reproducible and secure — proper artifact promotion, secret handling, rollback paths.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">GitHub Actions</span><span class="tech-tag">GitLab CI</span>
+          <span class="tech-tag">TeamCity</span><span class="tech-tag">Jenkins</span>
+          <span class="tech-tag">CodePipeline</span><span class="tech-tag">CircleCI</span>
+          <span class="tech-tag">Bitbucket</span><span class="tech-tag">Tekton</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-activity"/></svg></div>
+        <h3>Observability</h3>
+        <p>Metrics, logs, traces and SLOs wired together — problems visible before customers report them.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Prometheus</span><span class="tech-tag">Grafana</span>
+          <span class="tech-tag">Loki</span><span class="tech-tag">Tempo</span>
+          <span class="tech-tag">Datadog</span><span class="tech-tag">New Relic</span>
+          <span class="tech-tag">CloudWatch</span><span class="tech-tag">ELK</span>
+          <span class="tech-tag">OpenTelemetry</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-shield-check"/></svg></div>
+        <h3>Security &amp; Compliance</h3>
+        <p>Least-privilege IAM, network segmentation, key management and audit trails — designed for ISO/SOC 2 from day one.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS IAM</span><span class="tech-tag">SCPs</span>
+          <span class="tech-tag">Control Tower</span><span class="tech-tag">KMS</span>
+          <span class="tech-tag">Vault</span><span class="tech-tag">Trivy</span>
+          <span class="tech-tag">Snyk</span><span class="tech-tag">GuardDuty</span>
+          <span class="tech-tag">Security Hub</span><span class="tech-tag">OPA</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-terminal"/></svg></div>
+        <h3>Scripting &amp; Automation</h3>
+        <p>Glue code for the messy parts: backups, runbook automation, lambda-driven ops, developer tooling.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Bash</span><span class="tech-tag">Python</span>
+          <span class="tech-tag">Go</span><span class="tech-tag">Node.js</span>
+          <span class="tech-tag">PowerShell</span><span class="tech-tag">YAML</span>
+          <span class="tech-tag">HCL</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-database"/></svg></div>
+        <h3>Databases &amp; Storage</h3>
+        <p>Managed and self-hosted database operations — replication, backup strategy, performance tuning, cross-cloud migrations.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">RDS</span><span class="tech-tag">Aurora</span>
+          <span class="tech-tag">DynamoDB</span><span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">MySQL</span><span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Redis</span><span class="tech-tag">Elasticsearch</span>
+          <span class="tech-tag">S3</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-network"/></svg></div>
+        <h3>Networking</h3>
+        <p>VPCs, hub-and-spoke, private connectivity, edge protection and DNS strategies that scale with the business.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">VPC</span><span class="tech-tag">Transit Gateway</span>
+          <span class="tech-tag">Route53</span><span class="tech-tag">WAF</span>
+          <span class="tech-tag">CloudFront</span><span class="tech-tag">VPN / DX</span>
+          <span class="tech-tag">ALB / NLB</span><span class="tech-tag">PrivateLink</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-globe"/></svg></div>
+        <h3>Service Mesh &amp; API</h3>
+        <p>East-west traffic control, mTLS, traffic shaping and unified API gateways for microservices at scale.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Istio</span><span class="tech-tag">Linkerd</span>
+          <span class="tech-tag">Envoy</span><span class="tech-tag">Consul</span>
+          <span class="tech-tag">Kong</span><span class="tech-tag">API Gateway</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-dollar"/></svg></div>
+        <h3>FinOps &amp; Cost Optimization</h3>
+        <p>Cloud cost visibility, rightsizing, savings plans and tagging strategies — turning the invoice into a conversation.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Cost Explorer</span><span class="tech-tag">Compute Optimizer</span>
+          <span class="tech-tag">CUR</span><span class="tech-tag">Vantage</span>
+          <span class="tech-tag">Cloudability</span><span class="tech-tag">Savings Plans</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-flame"/></svg></div>
+        <h3>Site Reliability &amp; DR</h3>
+        <p>Error budgets, chaos engineering and tested disaster-recovery — making "the platform is up" a measurable thing.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">SLO / SLI</span><span class="tech-tag">PagerDuty</span>
+          <span class="tech-tag">OpsGenie</span><span class="tech-tag">Chaos Mesh</span>
+          <span class="tech-tag">Velero</span><span class="tech-tag">AWS Backup</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-key"/></svg></div>
+        <h3>Identity &amp; Access</h3>
+        <p>Enterprise SSO, federated identity and Just-In-Time access for engineers — auditable end to end.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">IAM Identity Center</span><span class="tech-tag">Okta</span>
+          <span class="tech-tag">Auth0</span><span class="tech-tag">Keycloak</span>
+          <span class="tech-tag">SAML / OIDC</span><span class="tech-tag">Teleport</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-zap"/></svg></div>
+        <h3>Serverless &amp; Event-Driven</h3>
+        <p>Async architectures with Lambda, queues and event buses — pay-per-use compute that scales itself.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS Lambda</span><span class="tech-tag">Step Functions</span>
+          <span class="tech-tag">EventBridge</span><span class="tech-tag">SQS / SNS</span>
+          <span class="tech-tag">Kinesis</span><span class="tech-tag">Kafka</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><svg><use href="#i-radio"/></svg></div>
+        <h3>Edge &amp; CDN</h3>
+        <p>Global delivery, WAF rules and edge compute — fast, cached and protected from the perimeter inward.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">CloudFront</span><span class="tech-tag">Cloudflare</span>
+          <span class="tech-tag">Lambda@Edge</span><span class="tech-tag">CF Workers</span>
+          <span class="tech-tag">Akamai</span><span class="tech-tag">Fastly</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Certifications</span>
+      <h2 class="section-title">Verified&nbsp;<span class="gradient-text">credentials.</span></h2>
+      <p class="section-lead">All badges verifiable on <a href="https://www.credly.com/users/yurii-martyniuk" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;color:var(--accent-2)">Credly</a>. Filter by issuer below.</p>
+    </div>
+
+    <div class="certs-tabs" style="display:flex;justify-content:center;margin-bottom:36px">
+      <div style="display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:5px;backdrop-filter:blur(12px)">
+        <button class="cert-tab active" data-filter="all">All</button>
+        <button class="cert-tab" data-filter="aws">AWS</button>
+        <button class="cert-tab" data-filter="k8s">Kubernetes</button>
+        <button class="cert-tab" data-filter="hashi">HashiCorp</button>
+      </div>
+    </div>
+
+    <div class="certs-grid" id="certs-grid">
+
+      <!-- AWS Cloud Practitioner -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(117,158,184,.12)">
+        <div class="cert-shield" style="color:#759eb8"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <div class="issuer">Amazon Web Services · Foundational</div>
+          <span class="code">CLF-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS Solutions Architect Associate -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(122,161,22,.12)">
+        <div class="cert-shield" style="color:#7aa116"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified Solutions Architect — Associate</h3>
+          <div class="issuer">Amazon Web Services · Associate</div>
+          <span class="code">SAA-C03</span>
+        </div>
+      </div>
+
+      <!-- AWS SysOps Administrator Associate -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(200,81,27,.12)">
+        <div class="cert-shield" style="color:#c8511b"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified SysOps Administrator — Associate</h3>
+          <div class="issuer">Amazon Web Services · Associate</div>
+          <span class="code">SOA-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS Developer Associate -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(37,150,190,.12)">
+        <div class="cert-shield" style="color:#2596be"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified Developer — Associate</h3>
+          <div class="issuer">Amazon Web Services · Associate</div>
+          <span class="code">DVA-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS Solutions Architect Professional -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(212,64,12,.14)">
+        <div class="cert-shield" style="color:#d4400c"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified Solutions Architect — Professional</h3>
+          <div class="issuer">Amazon Web Services · Professional</div>
+          <span class="code">SAP-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS DevOps Engineer Professional -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(177,78,42,.14)">
+        <div class="cert-shield" style="color:#b14e2a"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified DevOps Engineer — Professional</h3>
+          <div class="issuer">Amazon Web Services · Professional</div>
+          <span class="code">DOP-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS Security Specialty -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(240,196,25,.14)">
+        <div class="cert-shield" style="color:#d4a90c"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Certified Security — Specialty</h3>
+          <div class="issuer">Amazon Web Services · Specialty</div>
+          <span class="code">SCS-C02</span>
+        </div>
+      </div>
+
+      <!-- AWS EKS Knowledge Badge -->
+      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(236,114,17,.14)">
+        <div class="cert-shield" style="color:#ec7211"><svg viewBox="0 0 64 72"><use href="#i-cert-eks"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon EKS — Knowledge Badge</h3>
+          <div class="issuer">Amazon Web Services · Skill Badge</div>
+          <span class="code">EKS</span>
+        </div>
+      </div>
+
+      <!-- CKA -->
+      <div class="cert-card" data-cat="k8s" style="--card-glow:rgba(50,108,229,.14)">
+        <div class="cert-shield" style="color:#326ce5"><svg viewBox="0 0 64 72"><use href="#i-cert-cka"/></svg></div>
+        <div class="cert-info">
+          <h3>Certified Kubernetes Administrator</h3>
+          <div class="issuer">Cloud Native Computing Foundation</div>
+          <span class="code">CKA</span>
+        </div>
+      </div>
+
+      <!-- HashiCorp Terraform Associate -->
+      <div class="cert-card" data-cat="hashi" style="--card-glow:rgba(123,66,188,.14)">
+        <div class="cert-shield" style="color:#7b42bc"><svg viewBox="0 0 64 72"><use href="#i-cert-tf"/></svg></div>
+        <div class="cert-info">
+          <h3>HashiCorp Certified: Terraform Associate</h3>
+          <div class="issuer">HashiCorp</div>
+          <span class="code">003</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section id="compliance" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Audits &amp; Compliance</span>
+      <h2 class="section-title">Audit-ready&nbsp;<span class="gradient-text">infrastructure.</span></h2>
+      <p class="section-lead">I've helped organizations pass audits — not just prepare for them.</p>
+    </div>
+    <div class="compliance-grid">
+      <div class="compliance-card">
+        <div class="compliance-badge"><svg><use href="#i-shield"/></svg>PASSED</div>
+        <h3>ISO/IEC 27001</h3>
+        <p>End-to-end readiness and remediation for the international standard for information security management systems.</p>
+        <ul>
+          <li>Risk assessment &amp; treatment plans</li>
+          <li>Access control matrices &amp; IAM hardening</li>
+          <li>Asset inventory and data classification</li>
+          <li>Backup, DR and business continuity playbooks</li>
+          <li>Cryptographic controls (KMS, TLS, key rotation)</li>
+        </ul>
+      </div>
+      <div class="compliance-card">
+        <div class="compliance-badge"><svg><use href="#i-file-shield"/></svg>PASSED</div>
+        <h3>SOC 2 (Type I &amp; II)</h3>
+        <p>Designing technical controls that satisfy the AICPA Trust Services Criteria — and producing the evidence to prove it.</p>
+        <ul>
+          <li>Centralized audit logging (CloudTrail, GuardDuty, Security Hub)</li>
+          <li>Change management via Git + IaC review gates</li>
+          <li>Vendor &amp; third-party access reviews</li>
+          <li>Encryption at rest &amp; in transit, secret rotation</li>
+          <li>Continuous monitoring &amp; alerting on control violations</li>
+        </ul>
+      </div>
+      <div class="compliance-card">
+        <div class="compliance-badge"><svg><use href="#i-radio"/></svg>BUILT</div>
+        <h3>Greenfield Infrastructure</h3>
+        <p>Building net-new infrastructure with security and compliance baked in from day one — instead of bolting them on later.</p>
+        <ul>
+          <li>Multi-account landing zones with Control Tower</li>
+          <li>Network segmentation &amp; private connectivity by default</li>
+          <li>Hardened Kubernetes baselines (CIS, OPA/Gatekeeper)</li>
+          <li>Pre-wired observability and incident workflows</li>
+          <li>Documented runbooks and tested DR scenarios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing" class="reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Writing</span>
+      <h2 class="section-title">Selected&nbsp;<span class="gradient-text">articles.</span></h2>
+      <p class="section-lead">Sharing what I learn on the job — published on Medium.</p>
+    </div>
+    <div class="articles-grid">
+      <a class="article-card" href="https://ethtool.medium.com/devops-roadmap-ee98589a0020" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>Medium · Guide</div>
+        <h3>DevOps RoadMap — DevOps Pre-requisite</h3>
+        <span class="article-arrow">Read article <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="article-card" href="https://ethtool.medium.com/aws-certification-roadmap-63c788f39254" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>Medium · Career</div>
+        <h3>AWS Certification RoadMap — plan your AWS journey</h3>
+        <span class="article-arrow">Read article <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="article-card" href="https://ethtool.medium.com/best-free-courses-to-crack-aws-sysops-administrator-associate-certification-in-2023-c02-3e763e318c8b" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>Medium · Certification</div>
+        <h3>Best courses to crack AWS SysOps Administrator (SOA-C02)</h3>
+        <span class="article-arrow">Read article <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="article-card" href="https://ethtool.medium.com/amazon-eks-knowledge-badge-readiness-path-part-1-3b8415dded7c" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>Medium · Kubernetes</div>
+        <h3>Amazon EKS — Knowledge Badge Readiness Path (Part 1)</h3>
+        <span class="article-arrow">Read article <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="article-card" href="https://ethtool.medium.com/aws-solutions-architect-professional-practice-exams-2025-part-2-d97e8c46a87b" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>Medium · Practice</div>
+        <h3>AWS Solutions Architect Professional — Practice Exams 2025</h3>
+        <span class="article-arrow">Read article <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="article-card" href="https://ethtool.medium.com/" target="_blank" rel="noopener">
+        <div class="article-platform"><svg><use href="#i-medium"/></svg>All posts</div>
+        <h3>See everything on my Medium publication</h3>
+        <span class="article-arrow">Visit profile <svg><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section reveal">
+  <div class="container">
+    <span class="eyebrow">// Contact</span>
+    <h2>Let's build something&nbsp;<span class="gradient-text">solid.</span></h2>
+    <p class="lead">
+      Looking for a senior DevOps engineer, an architecture review, or a partner for cloud migration
+      and compliance work? I read every message — typically reply within a day.
+    </p>
+    <div class="contact-actions">
+      <a href="mailto:devops-elements@techmagic.co" class="btn btn-primary"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
+      <a href="https://www.linkedin.com/in/yuriimartyniuk/" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="icon"><use href="#i-linkedin"/></svg>Connect on LinkedIn</a>
+    </div>
+
+    <div class="social-grid">
+      <a class="social-card" href="https://www.linkedin.com/in/yuriimartyniuk/" target="_blank" rel="noopener" style="--social-color:#0a66c2;--social-glow:rgba(10,102,194,.25)">
+        <span class="ico"><svg><use href="#i-linkedin"/></svg></span>
+        <span class="lbl">LinkedIn</span>
+        <span class="handle">/yuriimartyniuk</span>
+      </a>
+      <a class="social-card" href="https://www.credly.com/users/yurii-martyniuk" target="_blank" rel="noopener" style="--social-color:#ff6b00;--social-glow:rgba(255,107,0,.25)">
+        <span class="ico"><svg><use href="#i-credly"/></svg></span>
+        <span class="lbl">Credly</span>
+        <span class="handle">/yurii-martyniuk</span>
+      </a>
+      <a class="social-card" href="https://www.instagram.com/_ethtool_/" target="_blank" rel="noopener" style="--social-color:#e879f9;--social-glow:rgba(232,121,249,.25)">
+        <span class="ico"><svg><use href="#i-instagram"/></svg></span>
+        <span class="lbl">Instagram</span>
+        <span class="handle">@_ethtool_</span>
+      </a>
+      <a class="social-card" href="https://ethtool.medium.com/" target="_blank" rel="noopener" style="--social-color:#fff;--social-glow:rgba(255,255,255,.18)">
+        <span class="ico"><svg><use href="#i-medium"/></svg></span>
+        <span class="lbl">Medium</span>
+        <span class="handle">@ethtool</span>
+      </a>
+      <a class="social-card" href="mailto:devops-elements@techmagic.co" style="--social-color:#22d3ee;--social-glow:rgba(34,211,238,.25)">
+        <span class="ico"><svg><use href="#i-mail"/></svg></span>
+        <span class="lbl">Email</span>
+        <span class="handle">devops-elements</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="copyright">© <span id="year"></span> Yurii Martyniuk · All rights reserved</div>
+      <div>Designed &amp; built in Lviv, Ukraine</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  function updateActiveNav(){
+    const y = window.scrollY + 140;
+    let current = '';
+    sections.forEach(s=>{ if(s.offsetTop <= y) current = s.id; });
+    navAnchors.forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, {passive:true});
+  updateActiveNav();
+
+  const tabs = document.querySelectorAll('.cert-tab');
+  const cards = document.querySelectorAll('#certs-grid .cert-card');
+  tabs.forEach(t=>{
+    t.addEventListener('click',()=>{
+      tabs.forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      const f = t.dataset.filter;
+      cards.forEach(c=>{
+        c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
