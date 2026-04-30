@@ -333,10 +333,10 @@
   }
   .cert-tab.active{background:var(--text);color:var(--bg)}
   .cert-tab:hover:not(.active){color:var(--text)}
-  .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   .cert-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:24px;display:flex;gap:18px;align-items:flex-start;
+    padding:18px;display:flex;gap:14px;align-items:flex-start;
     transition:all .25s ease;position:relative;backdrop-filter:blur(8px);
     overflow:hidden;
   }
@@ -353,21 +353,21 @@
 
   /* Hexagonal certification badges */
   .cert-shield{
-    width:64px;height:72px;flex-shrink:0;position:relative;
+    width:54px;height:60px;flex-shrink:0;position:relative;
     filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));
   }
   .cert-shield svg{width:100%;height:100%}
 
   .cert-info{flex:1;min-width:0;position:relative}
   .cert-info h3{
-    font-size:14px;font-weight:600;line-height:1.4;margin-bottom:6px;letter-spacing:-.01em;color:var(--text);
+    font-size:13px;font-weight:600;line-height:1.35;margin-bottom:5px;letter-spacing:-.01em;color:var(--text);
   }
-  .cert-info .issuer{font-size:11.5px;color:var(--text-3);margin-bottom:10px}
+  .cert-info .issuer{font-size:11px;color:var(--text-3);margin-bottom:8px;line-height:1.3}
   .cert-info .code{
     display:inline-flex;align-items:center;gap:4px;
-    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;
-    padding:3px 8px;background:var(--surface-2);border:1px solid var(--border);
-    border-radius:5px;color:var(--text-2);
+    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+    padding:2px 7px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:5px;color:var(--text-2);letter-spacing:.3px;
   }
 
   /* === COMPLIANCE === */
@@ -610,10 +610,96 @@
     <symbol id="i-cert-tf" viewBox="0 0 64 72">
       <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
       <g transform="translate(20 24)">
-        <!-- Terraform logo - 4 squares -->
         <path fill="#fff" d="M0 0v8l7 4V4Z M21 4 14 0v4l7 4ZM7 12l7 4V8l-7-4Zm0 9 7 4v-4l-7-4Z"/>
       </g>
       <text x="32" y="60" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="7">TERRAFORM</text>
+    </symbol>
+
+    <!-- AWS Knowledge Badge -->
+    <symbol id="i-cert-knowledge" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 30)">
+        <text text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="700" font-size="10" letter-spacing="-0.3">aws</text>
+        <path d="M-12 6 Q -8 10 0 10 Q 8 10 12 6" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <text x="32" y="60" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="6.5" opacity="0.9">KNOWLEDGE</text>
+    </symbol>
+
+    <!-- AWS Cloud Quest -->
+    <symbol id="i-cert-quest" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 28)">
+        <polygon points="0,-10 2.94,-3.09 10.39,-3.09 4.49,1.18 6.18,8.09 0,4 -6.18,8.09 -4.49,1.18 -10.39,-3.09 -2.94,-3.09" fill="#fff"/>
+      </g>
+      <text x="32" y="58" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="6.5">CLOUD QUEST</text>
+    </symbol>
+
+    <!-- AWS Partner -->
+    <symbol id="i-cert-partner" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 30)">
+        <text text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="700" font-size="10" letter-spacing="-0.3">aws</text>
+        <path d="M-12 6 Q -8 10 0 10 Q 8 10 12 6" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <text x="32" y="60" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="7">PARTNER</text>
+    </symbol>
+
+    <!-- AWS Educate -->
+    <symbol id="i-cert-educate" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 28)">
+        <path fill="#fff" d="M-10 0 L0 -6 L10 0 L0 6 Z M-7 2 L-7 7 L0 11 L7 7 L7 2"/>
+      </g>
+      <text x="32" y="58" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="7">EDUCATE</text>
+    </symbol>
+
+    <!-- AWS Well-Architected -->
+    <symbol id="i-cert-wa" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 28)">
+        <rect x="-10" y="-8" width="20" height="14" rx="2" fill="none" stroke="#fff" stroke-width="1.4"/>
+        <line x1="-10" y1="-3" x2="10" y2="-3" stroke="#fff" stroke-width="1"/>
+        <line x1="-5" y1="-8" x2="-5" y2="6" stroke="#fff" stroke-width="1"/>
+        <line x1="5" y1="-8" x2="5" y2="6" stroke="#fff" stroke-width="1"/>
+      </g>
+      <text x="32" y="58" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="6">WELL-ARCH</text>
+    </symbol>
+
+    <!-- Microsoft Azure -->
+    <symbol id="i-cert-azure" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(20 22)">
+        <path fill="#fff" d="M11.5 5h11l-7.5-12.99zM7 0L0 18.6h6.92l8.064-13.965L10.5 0Zm5.717 1.93-3.024 5.235 5.31 9.197H24z" transform="scale(0.8)"/>
+      </g>
+      <text x="32" y="62" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="6.5">AZURE</text>
+    </symbol>
+
+    <!-- MongoDB -->
+    <symbol id="i-cert-mongo" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 30)">
+        <path fill="#fff" d="M0 -14 C 4 -8 7 -3 7 4 C 7 9 4 13 0 14 C -4 13 -7 9 -7 4 C -7 -3 -4 -8 0 -14 Z M 0 -10 L 0 14"/>
+        <line x1="0" y1="-10" x2="0" y2="14" stroke="currentColor" stroke-width="1"/>
+      </g>
+      <text x="32" y="62" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="6.5">MONGODB</text>
+    </symbol>
+
+    <!-- Databricks -->
+    <symbol id="i-cert-databricks" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(20 24)">
+        <path fill="#fff" d="M0 8 L12 14 L24 8 L24 12 L12 18 L0 12 Z M0 0 L12 6 L24 0 L24 4 L12 10 L0 4 Z"/>
+      </g>
+      <text x="32" y="62" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="5.5">DATABRICKS</text>
+    </symbol>
+
+    <!-- Linux Foundation -->
+    <symbol id="i-cert-lf" viewBox="0 0 64 72">
+      <path d="M32 0 L60 16 L60 56 L32 72 L4 56 L4 16 Z" fill="currentColor"/>
+      <g transform="translate(32 30)">
+        <text text-anchor="middle" fill="#fff" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14">LF</text>
+      </g>
+      <text x="32" y="58" text-anchor="middle" fill="#fff" font-family="'Inter',sans-serif" font-weight="600" font-size="5.5">LINUX FOUNDATION</text>
     </symbol>
   </defs>
 </svg>
@@ -654,7 +740,7 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat"><div class="v">7+</div><div class="l">Years experience</div></div>
-          <div class="hero-stat"><div class="v">10+</div><div class="l">Certifications</div></div>
+          <div class="hero-stat"><div class="v">50+</div><div class="l">Credentials</div></div>
           <div class="hero-stat"><div class="v">3</div><div class="l">Cloud providers</div></div>
           <div class="hero-stat"><div class="v">100%</div><div class="l">Audit pass rate</div></div>
         </div>
@@ -940,114 +1026,507 @@
       <p class="section-lead">All badges verifiable on <a href="https://www.credly.com/users/yurii-martyniuk" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;color:var(--accent-2)">Credly</a>. Filter by issuer below.</p>
     </div>
 
-    <div class="certs-tabs" style="display:flex;justify-content:center;margin-bottom:36px">
-      <div style="display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:5px;backdrop-filter:blur(12px)">
-        <button class="cert-tab active" data-filter="all">All</button>
-        <button class="cert-tab" data-filter="aws">AWS</button>
-        <button class="cert-tab" data-filter="k8s">Kubernetes</button>
-        <button class="cert-tab" data-filter="hashi">HashiCorp</button>
+    <div class="certs-tabs" style="display:flex;justify-content:center;margin-bottom:36px;flex-wrap:wrap">
+      <div style="display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:5px;backdrop-filter:blur(12px);flex-wrap:wrap">
+        <button class="cert-tab active" data-filter="all">All <span style="opacity:.5;font-size:11px;margin-left:4px">54</span></button>
+        <button class="cert-tab" data-filter="core">AWS Certs</button>
+        <button class="cert-tab" data-filter="knowledge">Knowledge</button>
+        <button class="cert-tab" data-filter="quest">Cloud Quest</button>
+        <button class="cert-tab" data-filter="partner">Partner</button>
+        <button class="cert-tab" data-filter="vendor">Other Vendors</button>
       </div>
     </div>
 
     <div class="certs-grid" id="certs-grid">
 
-      <!-- AWS Cloud Practitioner -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(117,158,184,.12)">
-        <div class="cert-shield" style="color:#759eb8"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
-        <div class="cert-info">
-          <h3>AWS Certified Cloud Practitioner</h3>
-          <div class="issuer">Amazon Web Services · Foundational</div>
-          <span class="code">CLF-C02</span>
-        </div>
-      </div>
-
-      <!-- AWS Solutions Architect Associate -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(122,161,22,.12)">
-        <div class="cert-shield" style="color:#7aa116"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
-        <div class="cert-info">
-          <h3>AWS Certified Solutions Architect — Associate</h3>
-          <div class="issuer">Amazon Web Services · Associate</div>
-          <span class="code">SAA-C03</span>
-        </div>
-      </div>
-
-      <!-- AWS SysOps Administrator Associate -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(200,81,27,.12)">
-        <div class="cert-shield" style="color:#c8511b"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
-        <div class="cert-info">
-          <h3>AWS Certified SysOps Administrator — Associate</h3>
-          <div class="issuer">Amazon Web Services · Associate</div>
-          <span class="code">SOA-C02</span>
-        </div>
-      </div>
-
-      <!-- AWS Developer Associate -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(37,150,190,.12)">
-        <div class="cert-shield" style="color:#2596be"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
-        <div class="cert-info">
-          <h3>AWS Certified Developer — Associate</h3>
-          <div class="issuer">Amazon Web Services · Associate</div>
-          <span class="code">DVA-C02</span>
-        </div>
-      </div>
-
-      <!-- AWS Solutions Architect Professional -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(212,64,12,.14)">
+      <!-- ============ AWS CORE CERTIFICATIONS (paid exams) ============ -->
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(212,64,12,.14)">
         <div class="cert-shield" style="color:#d4400c"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
         <div class="cert-info">
-          <h3>AWS Certified Solutions Architect — Professional</h3>
-          <div class="issuer">Amazon Web Services · Professional</div>
+          <h3>Solutions Architect — Professional</h3>
+          <div class="issuer">AWS · Professional</div>
           <span class="code">SAP-C02</span>
         </div>
       </div>
 
-      <!-- AWS DevOps Engineer Professional -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(177,78,42,.14)">
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(177,78,42,.14)">
         <div class="cert-shield" style="color:#b14e2a"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
         <div class="cert-info">
-          <h3>AWS Certified DevOps Engineer — Professional</h3>
-          <div class="issuer">Amazon Web Services · Professional</div>
-          <span class="code">DOP-C02</span>
+          <h3>CloudOps Engineer — Associate</h3>
+          <div class="issuer">AWS · Associate</div>
+          <span class="code">SOA-C03</span>
         </div>
       </div>
 
-      <!-- AWS Security Specialty -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(240,196,25,.14)">
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(240,196,25,.14)">
         <div class="cert-shield" style="color:#d4a90c"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
         <div class="cert-info">
-          <h3>AWS Certified Security — Specialty</h3>
-          <div class="issuer">Amazon Web Services · Specialty</div>
+          <h3>Security — Specialty</h3>
+          <div class="issuer">AWS · Specialty</div>
           <span class="code">SCS-C02</span>
         </div>
       </div>
 
-      <!-- AWS EKS Knowledge Badge -->
-      <div class="cert-card" data-cat="aws" style="--card-glow:rgba(236,114,17,.14)">
-        <div class="cert-shield" style="color:#ec7211"><svg viewBox="0 0 64 72"><use href="#i-cert-eks"/></svg></div>
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(122,161,22,.12)">
+        <div class="cert-shield" style="color:#7aa116"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
         <div class="cert-info">
-          <h3>Amazon EKS — Knowledge Badge</h3>
-          <div class="issuer">Amazon Web Services · Skill Badge</div>
+          <h3>Solutions Architect — Associate</h3>
+          <div class="issuer">AWS · Associate</div>
+          <span class="code">SAA-C03</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(200,81,27,.12)">
+        <div class="cert-shield" style="color:#c8511b"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>SysOps Administrator — Associate</h3>
+          <div class="issuer">AWS · Associate</div>
+          <span class="code">SOA-C02</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(37,150,190,.12)">
+        <div class="cert-shield" style="color:#2596be"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>Developer — Associate</h3>
+          <div class="issuer">AWS · Associate</div>
+          <span class="code">DVA-C02</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(117,158,184,.12)">
+        <div class="cert-shield" style="color:#759eb8"><svg viewBox="0 0 64 72"><use href="#i-cert-shield"/></svg></div>
+        <div class="cert-info">
+          <h3>Cloud Practitioner</h3>
+          <div class="issuer">AWS · Foundational</div>
+          <span class="code">CLF-C02</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="core" style="--card-glow:rgba(99,102,241,.14)">
+        <div class="cert-shield" style="color:#6366f1"><svg viewBox="0 0 64 72"><use href="#i-cert-wa"/></svg></div>
+        <div class="cert-info">
+          <h3>Well-Architected Proficient</h3>
+          <div class="issuer">AWS · Framework</div>
+          <span class="code">WA</span>
+        </div>
+      </div>
+
+      <!-- ============ AWS KNOWLEDGE BADGES ============ -->
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon EKS</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
           <span class="code">EKS</span>
         </div>
       </div>
 
-      <!-- CKA -->
-      <div class="cert-card" data-cat="k8s" style="--card-glow:rgba(50,108,229,.14)">
-        <div class="cert-shield" style="color:#326ce5"><svg viewBox="0 0 64 72"><use href="#i-cert-cka"/></svg></div>
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
         <div class="cert-info">
-          <h3>Certified Kubernetes Administrator</h3>
-          <div class="issuer">Cloud Native Computing Foundation</div>
-          <span class="code">CKA</span>
+          <h3>Amazon ECS</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">ECS</span>
         </div>
       </div>
 
-      <!-- HashiCorp Terraform Associate -->
-      <div class="cert-card" data-cat="hashi" style="--card-glow:rgba(123,66,188,.14)">
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon Q Developer Fundamentals</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">Q-DEV</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Security Champion</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">SEC</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Cloud Essentials</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">CLOUD</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Networking Core</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">NET</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Storage Core</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">STOR</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Object Storage</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">S3</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Block Storage</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">EBS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>File Storage</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">EFS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Serverless</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">SVRLS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Events and Workflows</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">EVT</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Data Protection &amp; Disaster Recovery</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">DR</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Data Migration</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">DMS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon Braket</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">QC</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Architecting (Retired)</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">ARCH</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon Connect Communications Specialist</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">CONN</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Amazon Connect Developer</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">CONN-D</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS for Games — Cloud Game Development</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">GAMES</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="knowledge" style="--card-glow:rgba(50,108,229,.12)">
+        <div class="cert-shield" style="color:#1a73c5"><svg viewBox="0 0 64 72"><use href="#i-cert-knowledge"/></svg></div>
+        <div class="cert-info">
+          <h3>Media &amp; Entertainment — D2C / Broadcast</h3>
+          <div class="issuer">AWS · Knowledge Badge</div>
+          <span class="code">M&amp;E</span>
+        </div>
+      </div>
+
+      <!-- ============ AWS CLOUD QUEST ============ -->
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Solutions Architect</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">SA</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Cloud Practitioner</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">CP</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Security</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">SEC</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Serverless Developer</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">SVRLS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Data Analytics</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">DATA</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Machine Learning</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">ML</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(0,170,94,.14)">
+        <div class="cert-shield" style="color:#00aa5e"><svg viewBox="0 0 64 72"><use href="#i-cert-quest"/></svg></div>
+        <div class="cert-info">
+          <h3>Generative AI Architect</h3>
+          <div class="issuer">AWS Cloud Quest</div>
+          <span class="code">GEN-AI</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(34,211,238,.14)">
+        <div class="cert-shield" style="color:#0ea5e9"><svg viewBox="0 0 64 72"><use href="#i-cert-educate"/></svg></div>
+        <div class="cert-info">
+          <h3>Introduction to Cloud 101</h3>
+          <div class="issuer">AWS Educate</div>
+          <span class="code">EDU</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="quest" style="--card-glow:rgba(34,211,238,.14)">
+        <div class="cert-shield" style="color:#0ea5e9"><svg viewBox="0 0 64 72"><use href="#i-cert-educate"/></svg></div>
+        <div class="cert-info">
+          <h3>Machine Learning Foundations</h3>
+          <div class="issuer">AWS Educate</div>
+          <span class="code">ML-EDU</span>
+        </div>
+      </div>
+
+      <!-- ============ AWS PARTNER ============ -->
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Sales Accreditation</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">SALES</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Cloud Economics Essentials</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">FINOPS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Migration Essentials</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">MIG</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Generative AI Essentials</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">GEN-AI</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Generative AI Sales</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">GEN-S</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Agentic AI Essentials</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">AGNT</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Agentic AI Sales</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">AGNT-S</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Digital Sovereignty Essentials</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">DS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="partner" style="--card-glow:rgba(36,71,144,.14)">
+        <div class="cert-shield" style="color:#244790"><svg viewBox="0 0 64 72"><use href="#i-cert-partner"/></svg></div>
+        <div class="cert-info">
+          <h3>Security for Sellers — Business</h3>
+          <div class="issuer">AWS Partner · Training</div>
+          <span class="code">SEC-B</span>
+        </div>
+      </div>
+
+      <!-- ============ OTHER VENDORS ============ -->
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(123,66,188,.14)">
         <div class="cert-shield" style="color:#7b42bc"><svg viewBox="0 0 64 72"><use href="#i-cert-tf"/></svg></div>
         <div class="cert-info">
-          <h3>HashiCorp Certified: Terraform Associate</h3>
+          <h3>Terraform Associate</h3>
           <div class="issuer">HashiCorp</div>
           <span class="code">003</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(0,120,212,.14)">
+        <div class="cert-shield" style="color:#0078d4"><svg viewBox="0 0 64 72"><use href="#i-cert-azure"/></svg></div>
+        <div class="cert-info">
+          <h3>Azure Fundamentals</h3>
+          <div class="issuer">Microsoft</div>
+          <span class="code">AZ-900</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(0,164,80,.14)">
+        <div class="cert-shield" style="color:#00a450"><svg viewBox="0 0 64 72"><use href="#i-cert-mongo"/></svg></div>
+        <div class="cert-info">
+          <h3>Schema Design Patterns &amp; Anti-patterns</h3>
+          <div class="issuer">MongoDB · Skill Badge</div>
+          <span class="code">SCHEMA</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(0,164,80,.14)">
+        <div class="cert-shield" style="color:#00a450"><svg viewBox="0 0 64 72"><use href="#i-cert-mongo"/></svg></div>
+        <div class="cert-info">
+          <h3>Securing MongoDB Atlas — Auth</h3>
+          <div class="issuer">MongoDB · Skill Badge</div>
+          <span class="code">ATLAS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(0,164,80,.14)">
+        <div class="cert-shield" style="color:#00a450"><svg viewBox="0 0 64 72"><use href="#i-cert-mongo"/></svg></div>
+        <div class="cert-info">
+          <h3>Securing MongoDB Atlas — Networking</h3>
+          <div class="issuer">MongoDB · Skill Badge</div>
+          <span class="code">ATLAS-N</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(255,55,53,.14)">
+        <div class="cert-shield" style="color:#ff3733"><svg viewBox="0 0 64 72"><use href="#i-cert-databricks"/></svg></div>
+        <div class="cert-info">
+          <h3>AWS Databricks Platform Architect</h3>
+          <div class="issuer">Databricks Academy</div>
+          <span class="code">DBX-AWS</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(255,55,53,.14)">
+        <div class="cert-shield" style="color:#ff3733"><svg viewBox="0 0 64 72"><use href="#i-cert-databricks"/></svg></div>
+        <div class="cert-info">
+          <h3>Databricks Fundamentals</h3>
+          <div class="issuer">Databricks Academy</div>
+          <span class="code">DBX</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-cat="vendor" style="--card-glow:rgba(255,193,7,.14)">
+        <div class="cert-shield" style="color:#fbbf24"><svg viewBox="0 0 64 72"><use href="#i-cert-lf"/></svg></div>
+        <div class="cert-info">
+          <h3>Developing Secure Software</h3>
+          <div class="issuer">The Linux Foundation</div>
+          <span class="code">LFD121</span>
         </div>
       </div>
 
@@ -1157,7 +1636,7 @@
       and compliance work? I read every message — typically reply within a day.
     </p>
     <div class="contact-actions">
-      <a href="mailto:devops-elements@techmagic.co" class="btn btn-primary"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
+      <a href="mailto:ykrzal@gmail.com" class="btn btn-primary"><svg class="icon"><use href="#i-mail"/></svg>Email me</a>
       <a href="https://www.linkedin.com/in/yuriimartyniuk/" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="icon"><use href="#i-linkedin"/></svg>Connect on LinkedIn</a>
     </div>
 
@@ -1182,7 +1661,7 @@
         <span class="lbl">Medium</span>
         <span class="handle">@ethtool</span>
       </a>
-      <a class="social-card" href="mailto:devops-elements@techmagic.co" style="--social-color:#22d3ee;--social-glow:rgba(34,211,238,.25)">
+      <a class="social-card" href="mailto:ykrzal@gmail.com" style="--social-color:#22d3ee;--social-glow:rgba(34,211,238,.25)">
         <span class="ico"><svg><use href="#i-mail"/></svg></span>
         <span class="lbl">Email</span>
         <span class="handle">devops-elements</span>
